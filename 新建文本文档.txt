@@ -1,0 +1,164 @@
+<LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:background="#CDDC39">
+       <TextView
+           android:layout_width="100dp"
+           android:layout_height="350dp"
+           android:text="白茶清欢无别事"
+           android:background="#F44336"/>
+       <TextView
+           android:layout_width="100dp"
+           android:layout_height="350dp"
+           android:text="我在等风也等你"
+           android:
+           android:background="#FF5722"/>
+       <TextView
+           android:layout_width="105dp"
+           android:layout_height="350dp"
+           android:text="苦酒折柳今相离"
+           android:background="#F49F36"/>
+       <TextView
+           android:layout_width="103dp"
+           android:layout_height="350dp"
+           android:text="无风无月也无你"
+           android:background="#F47236"/>
+
+   </LinearLayout>
+10.10.137.189
+<servlet>
+  <servlet-name>First</servlet-name>
+  <servlet-class>com.tfs.test</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>First</servlet-name>
+  <url-pattern>/First</url-pattern>
+  </servlet-mapping>
+
+
+
+
+
+
+
+
+package com.tfs.test;
+
+import java.io.IOException;
+import java.util.HashMap;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class First
+ */
+@WebServlet("/First")
+public class First extends HttpServlet {
+	private static final long serialVersionUID = 1L; //序列号
+    private HashMap<Integer,String> cityMap = new HashMap();  
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public First() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("text/html；charset=utf-8");
+		response.getWriter().println("hello"+ cityMap.get(001)+"的同学");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	
+	}
+	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		super.service(req, res);
+		System.out.println("service()...");
+	}
+	public void destroy() {
+		super.destroy();
+		System.out.println("destroy()...");
+	}
+	public void init() throws ServletException{
+		super.init();
+		System.out.println("init()...");
+		long start = System.currentTimeMillis();
+		System.out.println("从磁盘读取城市信息");
+		try{
+			Thread.sleep(2000);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		};
+		cityMap.put(001,"北京");
+		cityMap.put(001,"上海");
+		System.out.println(System.currentTimeMillis()-start);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>Week2</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+  <servlet-name>First</servlet-name>
+  <servlet-class>com.tfs.test</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>First</servlet-name>
+  <url-pattern>/First</url-pattern>
+  </servlet-mapping>
+</web-app>
+
+
